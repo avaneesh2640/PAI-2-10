@@ -1,17 +1,20 @@
-import matplotlib.pyplot as plt
+# member3_analysis.py
 
-def analyze_data(df):
-    print("\n===== DATA ANALYSIS =====")
+def analyze_data(train):
+    print("\n--- Data Analysis ---")
 
-    print("\nSurvival Count:")
-    print(df["Survived"].value_counts())
+    # Show first rows
+    print("\nHead:")
+    print(train.head())
 
-    print("\nGender Count:")
-    print(df["Sex"].value_counts())
+    # Show info
+    print("\nInfo:")
+    print(train.info())
 
-    # Graph
-    df["Survived"].value_counts().plot(kind="bar")
-    plt.title("Survival Count")
-    plt.xlabel("Survived (0 = No, 1 = Yes)")
-    plt.ylabel("Count")
-    plt.show()
+    # Show statistics
+    print("\nDescribe:")
+    print(train.describe())
+
+    # Check missing values
+    print("\nMissing Values:")
+    print(train.isnull().sum())

@@ -1,14 +1,13 @@
 from sklearn.linear_model import LogisticRegression
 
-def train_model(df):
-    df = df.dropna()
+def train_model(train):
+    features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']
 
-    X = df[["Pclass", "Age", "Sex"]]
-    y = df["Survived"]
+    X = train[features]
+    y = train['Survived']
 
-    model = LogisticRegression()
+    model = LogisticRegression(max_iter=200)
     model.fit(X, y)
 
-    print("Model Trained Successfully")
-
+    print("Model trained successfully")
     return model
